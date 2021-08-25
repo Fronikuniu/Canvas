@@ -45,14 +45,13 @@ const drawCircle = (x, y, radius, startAngle, endAngle, color, lineWidth) => {
   let ctx = canvas.getContext('2d');
 
   ctx.beginPath();
-  ctx.strokeStyle = color;
-  ctx.lineWidth = lineWidth;
+  ctx.strokeStyle = color; //set brush color
+  ctx.lineWidth = lineWidth; //set brush width
   ctx.arc(x, y, radius, startAngle * Math.PI, endAngle * Math.PI);
   ctx.stroke();
 };
 
 const ManyPaths = () => {
-  console.log('dupa');
   let canvas = document.querySelector('#canvasManyPaths');
   let ctx = canvas.getContext('2d');
 
@@ -80,4 +79,131 @@ const ManyPaths = () => {
   ctx.stroke();
   ctx.fillStyle = 'red';
   ctx.fill();
+};
+
+const SimpleTransforms = () => {
+  let canvas = document.querySelector('#canvasSimpleTransforms');
+  let ctx = canvas.getContext('2d');
+
+  // 1
+
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  let angle = (45 * Math.PI) / 180;
+  let x = 25;
+  let y = 25;
+  let width = 100;
+  let height = 100;
+
+  ctx.translate(x + 0.5 * width, y + 0.5 * height);
+  ctx.rotate(angle);
+  ctx.fillStyle = 'yellow'; // set body color
+  ctx.fillRect(-0.5 * width, -0.5 * height, width, height);
+
+  // 2
+
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  angle = (75 * Math.PI) / 180;
+  x = 75;
+  y = 25;
+  width = 100;
+  height = 100;
+
+  ctx.translate(x + 0.5 * width, y + 0.5 * height);
+  ctx.rotate(angle);
+  ctx.fillStyle = 'orange';
+  ctx.fillRect(-0.5 * width, -0.5 * height, width, height);
+
+  // 3
+
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  angle = (90 * Math.PI) / 180;
+  x = 125;
+  y = 25;
+  width = 100;
+  height = 100;
+
+  ctx.translate(x + 0.5 * width, y + 0.5 * height);
+  ctx.rotate(angle);
+  ctx.fillStyle = 'pink';
+  ctx.fillRect(-0.5 * width, -0.5 * height, width, height);
+
+  // 4
+
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  angle = (120 * Math.PI) / 180;
+  x = 175;
+  y = 25;
+  width = 100;
+  height = 100;
+
+  ctx.translate(x + 0.5 * width, y + 0.5 * height);
+  ctx.rotate(angle);
+  ctx.fillStyle = 'purple';
+  ctx.fillRect(-0.5 * width, -0.5 * height, width, height);
+};
+
+const Gradient = () => {
+  let canvas = document.querySelector('#canvasGradient');
+  let ctx = canvas.getContext('2d');
+  let XStartPoint = parseInt(document.querySelector('#xstartpoint').value);
+  let YStartPoint = parseInt(document.querySelector('#ystartpoint').value);
+  let XEndPoint = parseInt(document.querySelector('#xendpoint').value);
+  let YEndPoint = parseInt(document.querySelector('#yendpoint').value);
+
+  let gradient = ctx.createLinearGradient(XStartPoint, YStartPoint, XEndPoint, YEndPoint);
+  gradient.addColorStop(0, 'rgb(123,211,102)'); //Add color to gradient
+  gradient.addColorStop(0.5, 'rgb(56,299,102)');
+  gradient.addColorStop(1, 'rgb(20,211,102)');
+
+  ctx.fillStyle = gradient;
+
+  ctx.fillRect(0, 0, 130, 130);
+  ctx.fillRect(0, 130, 70, 150);
+  ctx.fillRect(90, 130, 200, 240);
+};
+
+const RombGradient = () => {
+  let canvas = document.querySelector('#canvasRombGradient');
+  let ctx = canvas.getContext('2d');
+  let XStartPoint = parseInt(document.querySelector('#xstartpoint').value);
+  let YStartPoint = parseInt(document.querySelector('#ystartpoint').value);
+  let XEndPoint = parseInt(document.querySelector('#xendpoint').value);
+  let YEndPoint = parseInt(document.querySelector('#yendpoint').value);
+
+  let gradient = ctx.createLinearGradient(XStartPoint, YStartPoint, XEndPoint, YEndPoint);
+  gradient.addColorStop(0, 'rgb(255,150,102)');
+  gradient.addColorStop(0.5, 'rgb(255,100,102)');
+  gradient.addColorStop(1, 'rgb(255,1,102)');
+
+  ctx.fillStyle = gradient;
+
+  ctx.beginPath();
+  ctx.moveTo(100, 0);
+  ctx.lineTo(200, 75);
+  ctx.lineTo(100, 150);
+  ctx.lineTo(0, 75);
+  ctx.lineTo(100, 0);
+  ctx.stroke();
+  ctx.fill();
+  ctx.closePath();
+};
+
+const RadialGradient = () => {
+  let canvas = document.querySelector('#canvasArcGradient');
+  let ctx = canvas.getContext('2d');
+  let XStartPoint = parseInt(document.querySelector('#xstartpoint').value);
+  let YStartPoint = parseInt(document.querySelector('#ystartpoint').value);
+  let XEndPoint = parseInt(document.querySelector('#xendpoint').value);
+  let YEndPoint = parseInt(document.querySelector('#yendpoint').value);
+  let startRadial = parseInt(document.querySelector('#startradial').value);
+  let endRadial = parseInt(document.querySelector('#endradial').value);
+
+  let gradient = ctx.createRadialGradient(XStartPoint, YStartPoint, startRadial, XEndPoint, YEndPoint, endRadial);
+  gradient.addColorStop(0, 'rgb(255,150,255)');
+  gradient.addColorStop(0.5, 'rgb(255,100,255)');
+  gradient.addColorStop(1, 'rgb(255,1,255)');
+
+  ctx.fillStyle = gradient;
+
+  ctx.fillRect(0, 0, 150, 150);
 };

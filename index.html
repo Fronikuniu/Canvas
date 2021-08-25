@@ -87,6 +87,44 @@
       <canvas id="canvasManyPaths" onclick="ManyPaths();"></canvas>
     </div>
 
+    <div class="container">
+      <h2>Simple transformations</h2>
+      <p>Click to see</p>
+
+      <canvas id="canvasSimpleTransforms" onclick="SimpleTransforms();"></canvas>
+    </div>
+
+    <div class="container">
+      <form>
+        <label for="xstartpoint">X Start Point</label>
+        <input type="number" id="xstartpoint" />
+
+        <label for="xstartpoint">Y Start Point</label>
+        <input type="number" id="ystartpoint" />
+
+        <label for="xstartpoint">X End Point</label>
+        <input type="number" id="xendpoint" />
+
+        <label for="xstartpoint">Y End Point</label>
+        <input type="number" id="yendpoint" />
+
+        <label for="xstartpoint">Start Radial</label>
+        <input type="number" id="startradial" />
+
+        <label for="xstartpoint">End Radial</label>
+        <input type="number" id="endradial" />
+
+        <button type="button" onclick="Gradient();">Generate gradient</button>
+        <button type="button" onclick="RombGradient();">Generate romb gradient</button>
+        <button type="button" onclick="RadialGradient();">Generate radial gradient</button>
+      </form>
+      <h3>Gradient</h3>
+      <canvas id="canvasGradient"></canvas>
+      <h3>Romb gradient</h3>
+      <canvas id="canvasRombGradient"></canvas>
+      <h3>Radial gradient</h3>
+      <canvas id="canvasArcGradient"></canvas>
+    </div>
     <script src="/index.js"></script>
   </body>
 </html>
