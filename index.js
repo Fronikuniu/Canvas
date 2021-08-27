@@ -80,6 +80,7 @@ const ManyPaths = () => {
   ctx.fillStyle = 'red';
   ctx.fill();
 };
+ManyPaths();
 
 const SimpleTransforms = () => {
   let canvas = document.querySelector('#canvasSimpleTransforms');
@@ -141,6 +142,7 @@ const SimpleTransforms = () => {
   ctx.fillStyle = 'purple';
   ctx.fillRect(-0.5 * width, -0.5 * height, width, height);
 };
+SimpleTransforms();
 
 const Gradient = () => {
   let canvas = document.querySelector('#canvasGradient');
@@ -232,3 +234,66 @@ const drawImage = () => {
     ctx.fillRect(0, 0, 120, 20);
   })
 }
+drawImage();
+
+const ShadowSquare = () => {
+  let canvas = document.querySelector('#shadowSquare');
+  let ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = 'green';
+  ctx.shadowOffsetX = -10;
+  ctx.shadowOffsetY = -10;
+  ctx.shadowColor = 'gray';
+  ctx.shadowBlur = 20;
+  ctx.fillRect(60, 35, 100, 100);
+}
+ShadowSquare();
+
+const ShadowRectangle = () => {
+  let canvas = document.querySelector('#shadowRectangle');
+  let ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = 'red';
+  ctx.shadowOffsetX = 10;
+  ctx.shadowOffsetY = 10;
+  ctx.shadowColor = 'gray';
+  ctx.shadowBlur = 14;
+  ctx.fillRect(60, 35, 100, 50);
+};
+ShadowRectangle();
+
+const ShadowCircle = () => {
+  let canvas = document.querySelector('#shadowCircle');
+  let ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = 'yellow';
+  ctx.shadowOffsetX = -10;
+  ctx.shadowOffsetY = -10;
+  ctx.shadowColor = 'gray';
+  ctx.shadowBlur = 18;
+  ctx.arc(150, 80, 50, 0 * Math.PI, 2 * Math.PI, false);
+  ctx.fill()
+};
+ShadowCircle();
+
+const ShadowRombShadow = () => {
+  let canvas = document.querySelector('#shadowRombShadow');
+  let ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = 'yellow';
+  ctx.shadowOffsetX = 16;
+  ctx.shadowOffsetY = 20;
+  ctx.shadowColor = 'gray';
+  ctx.shadowBlur = 10;
+
+  ctx.beginPath();
+  ctx.moveTo(50, 0);
+  ctx.lineTo(100, 50);
+  ctx.lineTo(50, 100);
+  ctx.lineTo(0, 50);
+  ctx.lineTo(50, 0);
+  ctx.stroke();
+  ctx.fill();
+  ctx.closePath();
+};
+ShadowRombShadow();
