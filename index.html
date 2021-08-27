@@ -95,6 +95,8 @@
     </div>
 
     <div class="container">
+      <h2>Gradients</h2>
+
       <form>
         <label for="xstartpoint">X Start Point</label>
         <input type="number" id="xstartpoint" />
@@ -118,12 +120,18 @@
         <button type="button" onclick="RombGradient();">Generate romb gradient</button>
         <button type="button" onclick="RadialGradient();">Generate radial gradient</button>
       </form>
+
       <h3>Gradient</h3>
       <canvas id="canvasGradient"></canvas>
       <h3>Romb gradient</h3>
       <canvas id="canvasRombGradient"></canvas>
       <h3>Radial gradient</h3>
       <canvas id="canvasArcGradient"></canvas>
+    </div>
+
+    <div class="container">
+      <h2>Image in figure</h2>
+      <canvas id="canvasImageInFigure" onclick="drawImage();"></canvas>
     </div>
     <script src="/index.js"></script>
   </body>

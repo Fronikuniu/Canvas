@@ -207,3 +207,28 @@ const RadialGradient = () => {
 
   ctx.fillRect(0, 0, 150, 150);
 };
+
+const drawImage = () => {
+  let canvas = document.querySelector('#canvasImageInFigure');
+  let ctx = canvas.getContext('2d');
+
+  let image = new Image();
+  image.src = 'https://picsum.photos/30/30';
+  image.width = '20';
+
+  image.addEventListener('load', () => {
+    let pattern1 = ctx.createPattern(image, 'no-repeat');
+    let pattern2 = ctx.createPattern(image, 'repeat-x');
+    let pattern3 = ctx.createPattern(image, 'repeat-y');
+
+    ctx.fillStyle = pattern1;
+    ctx.fillRect(0, 0, 20, 20);
+
+    ctx.fillStyle = pattern3;
+    ctx.fillRect(0, 25, 20, 80);
+    ctx.translate(0, 110);
+
+    ctx.fillStyle = pattern2;
+    ctx.fillRect(0, 0, 120, 20);
+  })
+}
